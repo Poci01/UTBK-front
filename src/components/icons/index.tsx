@@ -1,16 +1,35 @@
 import React from "react";
 import * as LucideIcons from "lucide-react";
 
-// Re-export semua ikon lucide standar
+// 1. Export langsung semua ikon dari lucide-react (menjamin tidak ada yang undefined)
 export * from "lucide-react";
 
-// 1. Core / Custom Icons
+// 2. Map ikon dengan awalan "Ic" secara dinamis dan aman
+const iconProxy = new Proxy(LucideIcons, {
+  get(target: any, prop: string) {
+    if (prop in target) return target[prop];
+    // Jika dipanggil dengan nama Ic... (misal IcArrowLeft -> ArrowLeft)
+    if (prop.startsWith("Ic")) {
+      const cleanName = prop.slice(2);
+      if (cleanName in target) return target[cleanName];
+      // Pemetaan khusus/fallback jika nama berbeda
+      if (cleanName === "CheckSm") return target.Check;
+      if (cleanName === "CheckSq") return target.CheckSquare;
+      if (cleanName === "Trend") return target.TrendingUp;
+      if (cleanName === "More") return target.MoreHorizontal;
+      if (cleanName === "Arrow") return target.ArrowRight;
+    }
+    // Default fallback agar komponen tidak bernilai 'undefined' (mencegah layar putih)
+    return target.HelpCircle || (() => null);
+  },
+});
+
+// Alias export untuk kompatibilitas seluruh komponen
 export const AppLogo = (props: React.SVGProps<SVGSVGElement>) => (
   <LucideIcons.BookOpen className="w-6 h-6 text-blue-600" {...props} />
 );
 
-// 2. Navigation & Actions
-export const IcArrow = LucideIcons.ArrowRight;
+// Named exports yang sering dipanggil langsung
 export const IcArrowLeft = LucideIcons.ArrowLeft;
 export const IcArrowRight = LucideIcons.ArrowRight;
 export const IcChevronRight = LucideIcons.ChevronRight;
@@ -28,8 +47,6 @@ export const IcDownload = LucideIcons.Download;
 export const IcEye = LucideIcons.Eye;
 export const IcCopy = LucideIcons.Copy;
 export const IcArchive = LucideIcons.Archive;
-
-// 3. UI Status & Indicators
 export const IcCheck = LucideIcons.CheckCircle;
 export const IcCheckSm = LucideIcons.Check;
 export const IcCheckSq = LucideIcons.CheckSquare;
@@ -44,12 +61,8 @@ export const IcLock = LucideIcons.Lock;
 export const IcTrophy = LucideIcons.Trophy;
 export const IcTrend = LucideIcons.TrendingUp;
 export const IcGlobe = LucideIcons.Globe;
-
-// 4. Content & Category Icons
 export const IcBook = LucideIcons.BookOpen;
 export const IcBookOpen = LucideIcons.BookOpen;
-
-// 5. Admin & User Pages
 export const IcDashboard = LucideIcons.LayoutDashboard;
 export const IcFileText = LucideIcons.FileText;
 export const IcHelp = LucideIcons.HelpCircle;
@@ -62,7 +75,7 @@ export const IcUser = LucideIcons.User;
 export const IcUsers = LucideIcons.Users;
 export const IcShield = LucideIcons.Shield;
 export const IcLogout = LucideIcons.LogOut;
+export const IcArrow = LucideIcons.ArrowRight;
 
-// Universal Object & Type Export
-export const Icons = LucideIcons;
+export const Icons = iconProxy;
 export type Icon = keyof typeof LucideIcons;
