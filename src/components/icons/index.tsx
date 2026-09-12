@@ -35,7 +35,6 @@ import {
   Bell
 } from "lucide-react";
 
-// Named Exports khusus yang dipanggil oleh AdminApp & UI komponen lainnya
 export const AppLogo = (props: React.SVGProps<SVGSVGElement>) => <BookOpen className="w-6 h-6 text-blue-600" {...props} />;
 export const IcDashboard = LayoutDashboard;
 export const IcFileText = FileText;
@@ -51,7 +50,6 @@ export const IcUser = User;
 export const IcShield = Shield;
 export const IcLogout = LogOut;
 
-// Named Exports Objek Icons Universal
 export const Icons = {
   BookOpen,
   Users,
