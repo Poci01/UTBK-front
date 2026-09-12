@@ -1,4 +1,5 @@
 import React from "react";
+import * as LucideIcons from "lucide-react";
 import {
   BookOpen,
   ArrowRight,
@@ -46,15 +47,17 @@ import {
   LogOut,
 } from "lucide-react";
 
-// Re-export semua ikon lucide standar
+// 1. Re-export seluruh paket ikon Lucide (termasuk Objek Icons untuk LoginPage)
 export * from "lucide-react";
+export const Icons = LucideIcons;
+export type Icon = keyof typeof LucideIcons;
 
-// 1. Core / Custom Icons
+// 2. Core / Custom Icons
 export const AppLogo = ({ size = 24, className = "text-indigo-600", ...props }: { size?: number; className?: string } & React.SVGProps<SVGSVGElement>) => (
   <BookOpen size={size} className={className} {...props} />
 );
 
-// 2. Navigation & Actions
+// 3. Navigation & Actions
 export const IcArrow = ArrowRight;
 export const IcArrowLeft = ArrowLeft;
 export const IcArrowRight = ArrowRight;
@@ -74,7 +77,7 @@ export const IcEye = Eye;
 export const IcCopy = Copy;
 export const IcArchive = Archive;
 
-// 3. UI Status & Indicators
+// 4. UI Status & Indicators
 export const IcCheck = CheckCircle;
 export const IcCheckSm = Check;
 export const IcCheckSq = CheckSquare;
@@ -90,11 +93,11 @@ export const IcTrophy = Trophy;
 export const IcTrend = TrendingUp;
 export const IcGlobe = Globe;
 
-// 4. Content & Category Icons
+// 5. Content & Category Icons
 export const IcBook = BookOpen;
 export const IcBookOpen = BookOpen;
 
-// 5. Admin & User Pages
+// 6. Admin & User Pages
 export const IcDashboard = LayoutDashboard;
 export const IcFileText = FileText;
 export const IcHelp = HelpCircle;
