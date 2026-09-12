@@ -87,3 +87,17 @@ export const notifAdmin = [
   { title: "Pengguna Baru Berdaftar", desc: "50 siswa baru mendaftar hari ini.", time: "5 mnt lalu", unread: true },
   { title: "Sistem Backup Berhasil", desc: "Database bank soal telah di-backup otomatis.", time: "2 jam lalu", unread: false },
 ];
+
+export const alertsData = [
+  { type: "info" as const, message: "Pendaftaran Tryout Akbar #2 dibuka 3 hari lagi." },
+  { type: "success" as const, message: "Sistem backup otomatis berhasil dijalankan." },
+];
+
+export const pdfExtractedSample = [
+  {
+    pertanyaan: "Berapakah hasil dari 15 x 12?",
+    opsi: ["160", "170", "180", "190", "200"],
+    jawaban: 2,
+    mapel: "Penalaran Matematika",
+  },
+];
