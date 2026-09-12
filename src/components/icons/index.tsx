@@ -20,6 +20,7 @@ export const IcSearch = LucideIcons.Search;
 export const IcPlus = LucideIcons.Plus;
 export const IcTrash = LucideIcons.Trash2;
 export const IcEdit = LucideIcons.Edit;
+export const IcSave = LucideIcons.Save;
 export const IcUpload = LucideIcons.Upload;
 export const IcDownload = LucideIcons.Download;
 export const IcEye = LucideIcons.Eye;
@@ -35,8 +36,14 @@ export const IcStar = LucideIcons.Star;
 export const IcFlag = LucideIcons.Flag;
 export const IcPlay = LucideIcons.Play;
 export const IcClock = LucideIcons.Clock;
+export const IcLock = LucideIcons.Lock;
+export const IcTrophy = LucideIcons.Trophy;
 
-// 4. Admin & User Pages
+// 4. Content & Category Icons
+export const IcBook = LucideIcons.BookOpen;
+export const IcBookOpen = LucideIcons.BookOpen;
+
+// 5. Admin & User Pages
 export const IcDashboard = LucideIcons.LayoutDashboard;
 export const IcFileText = LucideIcons.FileText;
 export const IcHelp = LucideIcons.HelpCircle;
