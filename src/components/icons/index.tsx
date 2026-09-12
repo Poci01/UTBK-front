@@ -17,6 +17,7 @@ export const IcChevronRight = LucideIcons.ChevronRight;
 export const IcChevronLeft = LucideIcons.ChevronLeft;
 export const IcChevronDown = LucideIcons.ChevronDown;
 export const IcMenu = LucideIcons.Menu;
+export const IcMore = LucideIcons.MoreHorizontal;
 export const IcSearch = LucideIcons.Search;
 export const IcPlus = LucideIcons.Plus;
 export const IcTrash = LucideIcons.Trash2;
