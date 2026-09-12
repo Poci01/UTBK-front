@@ -16,21 +16,6 @@ export const IcInfo = LucideIcons.Info;
 export const IcX = LucideIcons.X;
 export const IcTrash = LucideIcons.Trash2;
 
-// 4. Buat proxy otomatis untuk SEMUA komponen berawalan "Ic" (Contoh: IcChevronDown -> ChevronDown, IcUsers -> Users)
-// Ini menjamin 100% TIDAK AKAN ADA LAGI error "MISSING_EXPORT" untuk ikon Ic...
-const icHandler = {
-  get: (target: any, prop: string) => {
-    if (prop in target) return target[prop];
-    if (prop.startsWith("Ic")) {
-      const originalName = prop.slice(2);
-      if (originalName in LucideIcons) {
-        return (LucideIcons as any)[originalName];
-      }
-    }
-    return LucideIcons.HelpCircle;
-  }
-};
-
 // Explicit individual exports untuk bundler (Vite/Rolldown)
 export const IcDashboard = LucideIcons.LayoutDashboard;
 export const IcFileText = LucideIcons.FileText;
@@ -56,6 +41,6 @@ export const IcUpload = LucideIcons.Upload;
 export const IcDownload = LucideIcons.Download;
 export const IcEye = LucideIcons.Eye;
 
-// 5. Export Objek Icons Universal
-export const Icons = new Proxy(LucideIcons, icHandler);
+// 4. Export Objek Icons Universal
+export const Icons = LucideIcons;
 export type Icon = keyof typeof LucideIcons;
