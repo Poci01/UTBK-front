@@ -10,6 +10,7 @@ export const AppLogo = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 // 2. Navigation & Actions
+export const IcArrow = LucideIcons.ArrowRight;
 export const IcArrowLeft = LucideIcons.ArrowLeft;
 export const IcArrowRight = LucideIcons.ArrowRight;
 export const IcChevronRight = LucideIcons.ChevronRight;
@@ -24,6 +25,8 @@ export const IcSave = LucideIcons.Save;
 export const IcUpload = LucideIcons.Upload;
 export const IcDownload = LucideIcons.Download;
 export const IcEye = LucideIcons.Eye;
+export const IcCopy = LucideIcons.Copy;
+export const IcArchive = LucideIcons.Archive;
 
 // 3. UI Status & Indicators
 export const IcCheck = LucideIcons.CheckCircle;
@@ -38,6 +41,8 @@ export const IcPlay = LucideIcons.Play;
 export const IcClock = LucideIcons.Clock;
 export const IcLock = LucideIcons.Lock;
 export const IcTrophy = LucideIcons.Trophy;
+export const IcTrend = LucideIcons.TrendingUp;
+export const IcGlobe = LucideIcons.Globe;
 
 // 4. Content & Category Icons
 export const IcBook = LucideIcons.BookOpen;
