@@ -1,81 +1,109 @@
 import React from "react";
-import * as LucideIcons from "lucide-react";
+import {
+  BookOpen,
+  ArrowRight,
+  ArrowLeft,
+  ChevronRight,
+  ChevronLeft,
+  ChevronDown,
+  Menu,
+  MoreHorizontal,
+  Search,
+  Plus,
+  Trash2,
+  Edit,
+  Save,
+  Upload,
+  Download,
+  Eye,
+  Copy,
+  Archive,
+  CheckCircle,
+  Check,
+  CheckSquare,
+  AlertCircle,
+  Info,
+  X,
+  Star,
+  Flag,
+  Play,
+  Clock,
+  Lock,
+  Trophy,
+  TrendingUp,
+  Globe,
+  LayoutDashboard,
+  FileText,
+  HelpCircle,
+  BarChart2,
+  Settings,
+  Sun,
+  Moon,
+  Bell,
+  User,
+  Users,
+  Shield,
+  LogOut,
+} from "lucide-react";
 
-// 1. Export langsung semua ikon dari lucide-react (menjamin tidak ada yang undefined)
+// Re-export semua ikon lucide standar
 export * from "lucide-react";
 
-// 2. Map ikon dengan awalan "Ic" secara dinamis dan aman
-const iconProxy = new Proxy(LucideIcons, {
-  get(target: any, prop: string) {
-    if (prop in target) return target[prop];
-    // Jika dipanggil dengan nama Ic... (misal IcArrowLeft -> ArrowLeft)
-    if (prop.startsWith("Ic")) {
-      const cleanName = prop.slice(2);
-      if (cleanName in target) return target[cleanName];
-      // Pemetaan khusus/fallback jika nama berbeda
-      if (cleanName === "CheckSm") return target.Check;
-      if (cleanName === "CheckSq") return target.CheckSquare;
-      if (cleanName === "Trend") return target.TrendingUp;
-      if (cleanName === "More") return target.MoreHorizontal;
-      if (cleanName === "Arrow") return target.ArrowRight;
-    }
-    // Default fallback agar komponen tidak bernilai 'undefined' (mencegah layar putih)
-    return target.HelpCircle || (() => null);
-  },
-});
-
-// Alias export untuk kompatibilitas seluruh komponen
-export const AppLogo = (props: React.SVGProps<SVGSVGElement>) => (
-  <LucideIcons.BookOpen className="w-6 h-6 text-blue-600" {...props} />
+// 1. Core / Custom Icons
+export const AppLogo = ({ size = 24, className = "text-indigo-600", ...props }: { size?: number; className?: string } & React.SVGProps<SVGSVGElement>) => (
+  <BookOpen size={size} className={className} {...props} />
 );
 
-// Named exports yang sering dipanggil langsung
-export const IcArrowLeft = LucideIcons.ArrowLeft;
-export const IcArrowRight = LucideIcons.ArrowRight;
-export const IcChevronRight = LucideIcons.ChevronRight;
-export const IcChevronLeft = LucideIcons.ChevronLeft;
-export const IcChevronDown = LucideIcons.ChevronDown;
-export const IcMenu = LucideIcons.Menu;
-export const IcMore = LucideIcons.MoreHorizontal;
-export const IcSearch = LucideIcons.Search;
-export const IcPlus = LucideIcons.Plus;
-export const IcTrash = LucideIcons.Trash2;
-export const IcEdit = LucideIcons.Edit;
-export const IcSave = LucideIcons.Save;
-export const IcUpload = LucideIcons.Upload;
-export const IcDownload = LucideIcons.Download;
-export const IcEye = LucideIcons.Eye;
-export const IcCopy = LucideIcons.Copy;
-export const IcArchive = LucideIcons.Archive;
-export const IcCheck = LucideIcons.CheckCircle;
-export const IcCheckSm = LucideIcons.Check;
-export const IcCheckSq = LucideIcons.CheckSquare;
-export const IcAlert = LucideIcons.AlertCircle;
-export const IcInfo = LucideIcons.Info;
-export const IcX = LucideIcons.X;
-export const IcStar = LucideIcons.Star;
-export const IcFlag = LucideIcons.Flag;
-export const IcPlay = LucideIcons.Play;
-export const IcClock = LucideIcons.Clock;
-export const IcLock = LucideIcons.Lock;
-export const IcTrophy = LucideIcons.Trophy;
-export const IcTrend = LucideIcons.TrendingUp;
-export const IcGlobe = LucideIcons.Globe;
-export const IcBook = LucideIcons.BookOpen;
-export const IcBookOpen = LucideIcons.BookOpen;
-export const IcDashboard = LucideIcons.LayoutDashboard;
-export const IcFileText = LucideIcons.FileText;
-export const IcHelp = LucideIcons.HelpCircle;
-export const IcBar = LucideIcons.BarChart2;
-export const IcSettings = LucideIcons.Settings;
-export const IcSun = LucideIcons.Sun;
-export const IcMoon = LucideIcons.Moon;
-export const IcBell = LucideIcons.Bell;
-export const IcUser = LucideIcons.User;
-export const IcUsers = LucideIcons.Users;
-export const IcShield = LucideIcons.Shield;
-export const IcLogout = LucideIcons.LogOut;
-export const IcArrow = LucideIcons.ArrowRight;
+// 2. Navigation & Actions
+export const IcArrow = ArrowRight;
+export const IcArrowLeft = ArrowLeft;
+export const IcArrowRight = ArrowRight;
+export const IcChevronRight = ChevronRight;
+export const IcChevronLeft = ChevronLeft;
+export const IcChevronDown = ChevronDown;
+export const IcMenu = Menu;
+export const IcMore = MoreHorizontal;
+export const IcSearch = Search;
+export const IcPlus = Plus;
+export const IcTrash = Trash2;
+export const IcEdit = Edit;
+export const IcSave = Save;
+export const IcUpload = Upload;
+export const IcDownload = Download;
+export const IcEye = Eye;
+export const IcCopy = Copy;
+export const IcArchive = Archive;
 
-export const Icons = iconProxy;
-export type Icon = keyof typeof LucideIcons;
+// 3. UI Status & Indicators
+export const IcCheck = CheckCircle;
+export const IcCheckSm = Check;
+export const IcCheckSq = CheckSquare;
+export const IcAlert = AlertCircle;
+export const IcInfo = Info;
+export const IcX = X;
+export const IcStar = Star;
+export const IcFlag = Flag;
+export const IcPlay = Play;
+export const IcClock = Clock;
+export const IcLock = Lock;
+export const IcTrophy = Trophy;
+export const IcTrend = TrendingUp;
+export const IcGlobe = Globe;
+
+// 4. Content & Category Icons
+export const IcBook = BookOpen;
+export const IcBookOpen = BookOpen;
+
+// 5. Admin & User Pages
+export const IcDashboard = LayoutDashboard;
+export const IcFileText = FileText;
+export const IcHelp = HelpCircle;
+export const IcBar = BarChart2;
+export const IcSettings = Settings;
+export const IcSun = Sun;
+export const IcMoon = Moon;
+export const IcBell = Bell;
+export const IcUser = User;
+export const IcUsers = Users;
+export const IcShield = Shield;
+export const IcLogout = LogOut;
